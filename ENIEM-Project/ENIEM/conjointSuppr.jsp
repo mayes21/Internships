@@ -1,0 +1,99 @@
+<%@ page language="java" contentType="text/html; charset=windows-1252"
+    pageEncoding="windows-1252"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<link rel="stylesheet" media="screen" type="text/css" title="designMenu" href="CSS/menuOng.css"/>
+<link rel="stylesheet" media="screen" type="text/css" title="designMenu" href="CSS/confCSS.css"/>
+<title></title>
+<script type="text/javascript">
+window.history.forward();
+function noBack(){window.history.forward();}
+</script>
+</head>
+<body onload="noBack();" onpageshow="if(event.persisted)noBack();" onunload="">
+
+	<div style="margin-left:230px;position:absolute;margin-top:41px;">
+		<table>
+			<tr>
+				<td style="border-top:458px solid silver;"></td>
+			</tr>		
+		</table>
+	</div>
+	
+	<div class="position">
+  		<div id="en-tete">
+			<ul class="ong1">
+  				<li class="ong" id="actif"><span><b>Conjoint</b></span></li>
+  				<li class="ong"><a href="ENFANTS"><span><b>Enfant</b></span></a></li>
+  				<li class="ong"><a href="deconnexionsoc.do"><span><b>Déconnexion</b></span></a></li>
+ 			</ul>
+ 		 </div>
+	</div>
+
+	<div class="entete">
+		<p style="text-align:center;font-size:30px;font-family:Arial, Helvetica, sans-serif;color:#FFFFFF;padding-left:494px;padding-right:494px;">SOCIAL</p>
+	</div>
+	
+	<div style="position:absolute; top:6px; left:100px;">
+		<img src="Images/logoEniem2.png" alt="logoEniem2">
+	</div>
+	
+	
+	<div style="margin-top:50px;">
+	<%
+	 Class.forName("org.postgresql.Driver");
+    java.sql.Connection cnx = java.sql.DriverManager.getConnection("jdbc:postgresql://localhost:5432/ENIEM", "postgres", "asmayes");
+    java.sql.Statement req = cnx.createStatement();
+    
+    String sql = "select matricule, nomemp, prenomemp from employe";
+    out.println("<center><form name=\"formulaireModif\" action=\"confConjoint.jsp\" method=\"post\">");
+    out.println("<center><table width=\"50%\"  border=0% >");
+    out.println("<br>");
+    out.println("<tr><center><font size=6><font style=\"font-family:'Trebuchet MS', Arial, Helvetica, sans-serif\">   " +
+            "Supprimer un conjoint</font></center></tr>");
+    out.println("<thead><br>");
+    out.println("<tr>");
+    out.println("<th width=\"30%\" align=\"center\" bgcolor=\"#CCCCCC\"><font style=\"font-family:'Trebuchet MS', Arial, Helvetica, sans-serif\"> Nom");
+    out.println("</th>");
+    out.println("<th width=\"28%\" align=\"center\" bgcolor=\"#CCCCCC\"><font style=\"font-family:'Trebuchet MS', Arial, Helvetica, sans-serif\"> Prénom");
+    out.println("</th>");
+    out.println("<th width=\"22%\" align=\"center\" bgcolor=\"#CCCCCC\"><font style=\"font-family:'Trebuchet MS', Arial, Helvetica, sans-serif\"> matricule");
+    out.println("</th>");
+    out.println("</tr>");
+    out.println("</thead>");
+    out.println("<tbody>");
+    java.sql.ResultSet rs = req.executeQuery(sql);
+    while (rs.next())
+        {
+            String id = rs.getString(1);
+            String NOM = rs.getString(2);
+            String PRE = rs.getString(3);
+            out.println("<tr>");
+            out.println("<td align=\"center\" bgcolor=\"#C9DCEF\"><font style=\"font-family:'Trebuchet MS', Arial, Helvetica, sans-serif\">"+NOM+"</td>");
+            out.println("<td align=\"center\" bgcolor=\"#C9DCEF\"><font style=\"font-family:'Trebuchet MS', Arial, Helvetica, sans-serif\">"+PRE+"</td>");
+            out.println("<td align=\"center\" bgcolor=\"#C9DCEF\"><font style=\"font-family:'Trebuchet MS', Arial, Helvetica, sans-serif\">"+id+"</td>");
+            out.println("<td width=\"5%\" align=\"center\" bgcolor=\"#A6C6D9\"><input type=\"radio\" name=\"matricule\" value=\""+id+"\"></td>");
+            
+        }
+    rs.close();
+                    req.close();
+                    cnx.close();
+                    //out.println("</body>");
+                    //out.println("</html>");
+                    out.println("</tbody>");
+                    out.println("</table>");
+                    out.println("<br>");
+                    out.println("<input type=\"submit\" name=\"modif\" value=\"Supprimer\"/>");
+                    out.println("</center");
+                    out.println("</form>");
+
+                out.println("</td>");
+                out.println("</tr>");
+                out.println("</table>");
+%> 
+
+</div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+/* CSS Document */
+
+.buttConf
+{
+  width:257px;
+  height:50px;
+  display:block;
+}
+
+a.buttConf
+{
+	color:black;
+}
+
+a.buttConf:hover
+{
+	color:#FFFFFF;
+	text-decoration:none;
+	margin-left:2px;
+ 	margin-top:-2px;
+}

@@ -1,0 +1,89 @@
+/* CSS Document */
+
+.entete
+{
+	background-image:url(Images/essai02.jpg);
+	position:absolute;
+	top:0px;
+	left:36px;
+}
+
+p
+{
+	text-align:center;
+	font-size:30px;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#FFFFFF;
+	padding-left:375px;
+	padding-right:375px;
+}
+
+p:hover
+{
+	color:#999999;
+}
+
+.cadreLog
+{
+	margin-left:450px;
+	width:402px;
+	height:150px;
+  	margin-top:220px;
+	padding-top:17px;
+	padding-bottom:17px;
+	padding-left:17px;
+	padding-right:17px;
+	background-color:#DAE6E7;
+	border: solid 6px #C5DCE4;
+	-webkit-border-radius:7px 7px 7px 7px;
+	-moz-border-radius:7px 7px 7px 7px;
+	border-radius:7px 7px 7px 7px;
+}
+
+.moz
+{
+	-moz-border-radius:7px;
+	height:20px;
+}
+
+input 
+{
+  padding: 2px;
+  border: 2px solid #CCC;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+}
+
+input:focus 
+{
+  border-color: rgba(82, 168, 236, 0.75);
+  -moz-box-shadow: 0 0 20px rgba(82, 168, 236, 0.5);
+  -webkit-box-shadow: 0 0 20px rgba(82, 168, 236, 0.5);
+  box-shadow: 0 0 20px rgba(82, 168, 236, 0.5);
+}
+
+td
+{
+	text-align:right;
+	color:#333333;
+}
+
+.td
+{
+	padding-left:10px;	
+}
+
+.cadrSucc
+{
+	background-color:#C6E4BE;
+	padding-bottom:0px;
+	padding-left:17px;
+	padding-right:17px;
+	padding-top:14px;
+	border: solid 6px #64BF7B;
+	-webkit-border-radius:7px 7px 7px 7px;
+	-moz-border-radius:7px 7px 7px 7px;
+	-khtml-border-radius:7px 7px 7px 7px;
+	border-radius:7px 7px 7px 7px;
+}

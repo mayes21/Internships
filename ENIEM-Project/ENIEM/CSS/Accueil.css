@@ -1,0 +1,67 @@
+/* CSS Document */
+
+.entete
+{
+	background-image:url(Images/essai02.jpg);
+	position:absolute;
+	top:0px;
+	left:36px;
+}
+
+.textEntete
+{
+	text-align:center;
+	font-size:30px;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#FFFFFF;
+	padding-left:253px;
+	padding-right:254px;
+}
+
+.textEntete:hover
+{
+	color:#999999;
+}
+
+
+.cadre
+{
+  	margin-left:420px;
+	width:402px;
+	height:270px;
+  	margin-top:200px;
+	padding-bottom:32px;
+	padding-left:17px;
+	padding-right:17px;
+	background-color:#DAE6E7;
+	border: solid 6px #C5DCE4;
+	-webkit-border-radius:7px 7px 7px 7px;
+	-moz-border-radius:7px 7px 7px 7px;
+	-khtml-border-radius:7px 7px 7px 7px;
+	border-radius:7px 7px 7px 7px;
+}
+
+.button1
+{
+  width:399px;
+  height:47px;
+  display:block;
+}
+
+a
+{
+	background-image:url(Images/Bouton01.jpg);
+	text-decoration:none;
+	color:#333333;
+}
+
+a:hover
+{
+	color:#6666CC;
+}
+
+a.button1:hover
+{
+  margin-left:2px;
+  margin-top:-2px;	
+}
