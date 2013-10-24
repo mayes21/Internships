@@ -1,0 +1,144 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.JDOMException;
+import org.jdom2.filter.ElementFilter;
+import org.jdom2.input.SAXBuilder;
+
+
+
+public class ReadXMLFile {
+
+	public static void main(String[] args) {
+
+		ArrayList<String> sources = new ArrayList<String>();
+		ArrayList<String> auteurs = new ArrayList<String>();
+		ArrayList<String> dates = new ArrayList<String>();
+		ArrayList<String> titres = new ArrayList<String>();
+		ArrayList<String> textes = new ArrayList<String>();
+
+		SAXBuilder builder = new SAXBuilder();
+		File xmlFile = new File("all_senterritoire_150docs.xml");
+
+		try {
+
+			Document document = (Document) builder.build(xmlFile);
+			Element rootNode = document.getRootElement();
+
+			List list = rootNode.getChildren("DESCRIPTION");
+
+
+			Iterator<?> processDescendants = document.getDescendants(new ElementFilter()); 
+			int ii=0;
+			while(processDescendants.hasNext()) {
+				Element courant = (Element)processDescendants.next();
+
+				String name = courant.getName();
+				if(name.equals("SOURCE")){
+					//System.out.println(courant.getValue());
+					sources.add(courant.getValue());
+				}
+
+				if(name.equals("AUTEUR")){
+					auteurs.add(courant.getValue());				
+				}
+
+				if(name.equals("DATE")){
+					dates.add(courant.getValue());
+				}
+
+				if(name.equals("TITRE")){
+					titres.add(courant.getValue());
+				}
+
+				if(name.equals("TEXTE")){
+					textes.add(courant.getValue());
+				}
+				//System.out.println(courant.)
+				//System.out.println(courant.getQualifiedName());
+				//System.out.println(courant.getValue());
+
+				//System.out.println(courant.getChild("SOURCE").getText());
+
+			}
+
+
+
+
+
+		} catch (IOException io) {
+			System.out.println(io.getMessage());
+		} catch (JDOMException jdomex) {
+			System.out.println(jdomex.getMessage());
+		}
+
+		ArrayList<String> list = new ArrayList<String>();
+		File file = new File("listeOrganisation.txt");
+		BufferedReader reader = null;
+
+		try {
+			reader = new BufferedReader(new FileReader(file));
+			String text = null;
+
+			while ((text = reader.readLine()) != null) {
+				list.add(text);
+			}
+
+//			System.out.println(auteurs.size());
+			ArrayList<String> phrases = new ArrayList<String>();
+			//int i = 0;
+
+			for(String tex:textes){
+				//System.out.println(tex);
+				String[] phrase = tex.split("[\\r\\.\\t]+");
+				
+//				System.out.println(phrase.length);
+				for (int ii = 0; ii < phrase.length; ii++){
+					if(!phrase[ii].equals("")&&!phrase[ii].equals("\\ ")&&!phrase[ii].equals("\n")){
+						phrases.add(phrase[ii]);
+					}
+				}
+
+
+			}
+			int i = 0;
+			
+			for(String ph: phrases){
+				
+				for(String lis:list){
+					if(ph.contains(lis)){
+						System.out.println(lis);
+					}
+				}
+					//System.out.println(ph);
+				
+			}
+			
+			
+			
+			
+			
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (reader != null) {
+					reader.close();
+				}
+			} catch (IOException e) {
+			}
+		}
+
+	}
+
+}

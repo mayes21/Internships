@@ -1,0 +1,9 @@
+package ReadXML;
+
+import java.util.ArrayList;
+
+public class FindAuthor extends FindData {
+	
+	
+
+}

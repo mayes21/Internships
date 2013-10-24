@@ -1,0 +1,71 @@
+package ReadXML;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.JDOMException;
+import org.jdom2.filter.ElementFilter;
+import org.jdom2.input.SAXBuilder;
+
+public class OpenXMLFile {
+	
+	public String path;
+	public static ArrayList<String> textes = new ArrayList<String>();
+	
+	public OpenXMLFile(String path){
+		this.path = path;
+		
+		openPath();
+		
+	}
+	
+	public void openPath(){
+		
+		SAXBuilder builder = new SAXBuilder();
+		File xmlFile = new File(path);
+		
+		try {
+
+			Document document = (Document) builder.build(xmlFile);
+			Element rootNode = document.getRootElement();
+
+			List list = rootNode.getChildren("DESCRIPTION");
+
+
+			Iterator<?> processDescendants = document.getDescendants(new ElementFilter()); 
+			while(processDescendants.hasNext()) {
+				Element courant = (Element)processDescendants.next();
+
+				String name = courant.getName();
+				
+
+				/*if(name.equals("AUTEUR")){
+					auteurs.add(courant.getValue());				
+				}*/
+
+				if(name.equals("TEXTE")){
+					textes.add(courant.getValue());
+					//System.out.println(courant.getValue());
+				}
+				
+
+			}
+		
+	}
+		
+		
+		 catch (IOException io) {
+				System.out.println(io.getMessage());
+			} catch (JDOMException jdomex) {
+				System.out.println(jdomex.getMessage());
+			}
+		
+		
+
+}
+}

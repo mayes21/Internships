@@ -1,0 +1,25 @@
+package ReadXML;
+
+import java.io.File;
+
+import org.jdom2.input.SAXBuilder;
+
+public class OpenXMLFile {
+	
+	public String path;
+	
+	public OpenXMLFile(String path){
+		this.path = path;
+		
+		openPath();
+		
+	}
+	
+	public void openPath(){
+		
+		SAXBuilder builder = new SAXBuilder();
+		File xmlFile = new File("all_senterritoire_150docs.xml");
+		
+	}
+
+}

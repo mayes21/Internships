@@ -1,0 +1,20 @@
+package ReadXML;
+
+public class Launch {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		OpenXMLFile open = new OpenXMLFile("all_senterritoire_150docs.xml");
+		
+		//FindAuthor author = new FindAuthor(open.textes,"listeOrganisation.txt");
+		FindSpatialEntities se = new FindSpatialEntities(open.textes,"/home/gilles/universite/Master-Aigle/semestre2/stage/ParseXML/ReadXMLFile/listeES.txt");
+		
+		
+		
+	}
+
+}

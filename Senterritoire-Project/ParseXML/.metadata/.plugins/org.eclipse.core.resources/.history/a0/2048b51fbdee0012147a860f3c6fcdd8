@@ -1,0 +1,7 @@
+package ReadXML;
+
+public class FindSpatialEntities {
+	
+	public ArrayList<String> SpatialEntities = new ArrayList<String>()
+
+}

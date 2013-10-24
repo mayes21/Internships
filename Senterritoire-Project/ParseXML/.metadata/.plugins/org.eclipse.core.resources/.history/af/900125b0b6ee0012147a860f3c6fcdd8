@@ -1,0 +1,9 @@
+package ReadXML;
+
+public class OpenXMLFile {
+	
+	public OpenXMLFile(String path){
+		
+	}
+
+}

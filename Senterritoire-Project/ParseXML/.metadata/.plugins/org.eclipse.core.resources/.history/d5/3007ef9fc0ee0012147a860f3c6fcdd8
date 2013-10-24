@@ -1,0 +1,52 @@
+package ReadXML;
+
+import java.util.ArrayList;
+
+public class FindOpPos {
+
+	ArrayList<String> sefound = new ArrayList<String>();
+	ArrayList<String> trouvelow = new ArrayList<String>();
+	ArrayList<String> se;
+	ArrayList<String> phrases;
+
+	OpenTXTFile opensefile;
+	ArrayPhrases arrayphrases = new ArrayPhrases();
+
+	public FindOpPos(ArrayList<String> textes, String path){
+		this.opensefile = new OpenTXTFile(path);
+		this.se = opensefile.spatialentities();
+		this.phrases=arrayphrases.createPhrases(textes);
+		this.findSE();
+	}
+
+	public void findSE(){
+
+		for(String ph: phrases){
+
+			for(String lis:se){
+				if(ph.toLowerCase().contains(lis.toLowerCase())){
+					//System.out.println(lis);
+					if(!trouvelow.contains(lis.toLowerCase())){
+						trouvelow.add(lis.toLowerCase());
+						sefound.add(lis);
+					}
+					//System.out.println(ph);
+
+				}
+			}
+
+
+		}
+		System.out.println(se.size());
+		System.out.println(sefound.size());
+
+
+		for(String trou:sefound){
+			System.out.println(trou);
+		}
+
+	}
+
+}
+
+

@@ -1,0 +1,48 @@
+package ReadXML;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.util.ArrayList;
+
+public class OpenAuteurFile {
+	
+	ArrayList<String> trouve = new ArrayList<String>();
+	ArrayList<String> trouvelow = new ArrayList<String>();
+	
+	public OpenAuteurFile(){
+		
+	}
+	
+	ArrayList<String> list = new ArrayList<String>();
+	File file = new File("listeOrganisation.txt");
+	BufferedReader reader = null;
+
+	try {
+		reader = new BufferedReader(new FileReader(file));
+		String text = null;
+
+		while ((text = reader.readLine()) != null) {
+			list.add(text);
+		}
+
+		//			System.out.println(auteurs.size());
+		ArrayList<String> phrases = new ArrayList<String>();
+		//int i = 0;
+
+		for(String tex:textes){
+			//System.out.println(tex);
+			String[] phrase = tex.split("[\\r\\.\\t]+");
+
+			//				System.out.println(phrase.length);
+			for (int ii = 0; ii < phrase.length; ii++){
+				if(!phrase[ii].equals("")&&!phrase[ii].equals("\\ ")&&!phrase[ii].equals("\n")){
+					phrases.add(phrase[ii]);
+				}
+			}
+
+
+		}
+	}
+
+}

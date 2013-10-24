@@ -1,0 +1,18 @@
+package ReadXML;
+
+import java.util.ArrayList;
+
+public class FindSpatialEntities {
+	
+	ArrayList<String> SpatialEntities = new ArrayList<String>();
+	ArrayList<String> trouvelow = new ArrayList<String>();
+	ArrayList<String> authors;
+	ArrayList<String> phrases;
+	
+	public FindSpatialEntities(ArrayList<String> textes){
+		this.authors = openauteurfile.authors();
+		this.phrases=arrayphrases.createPhrases(textes);
+		this.findAuthors();
+	}
+
+}

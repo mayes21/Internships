@@ -1,0 +1,11 @@
+package ReadXML;
+
+import java.util.ArrayList;
+
+public class ArrayPhrases {
+	
+	public ArrayList<String> phrase = new ArrayList<String>();
+	
+	
+
+}

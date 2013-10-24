@@ -1,0 +1,48 @@
+package ReadXML;
+
+import java.util.ArrayList;
+
+public class FindAuthor {
+	
+	ArrayList<String> trouve = new ArrayList<String>();
+	ArrayList<String> trouvelow = new ArrayList<String>();
+	ArrayList<String> authors;
+	ArrayList<String> phrases;
+	ArrayPhrases arrayphrases = new ArrayPhrases();
+	OpenTXTFile openauteurfile ;
+	 ;
+	public FindAuthor(ArrayList<String> textes,String path){
+		openauteurfile = new OpenAuteurFile(path);
+		this.authors = openauteurfile.authors();
+		this.phrases=arrayphrases.createPhrases(textes);
+		this.findAuthors();
+	}
+	
+	public void findAuthors(){
+	for(String ph: phrases){
+
+		for(String lis:authors){
+			if(ph.toLowerCase().contains(lis.toLowerCase())){
+				//System.out.println(lis);
+				if(!trouvelow.contains(lis.toLowerCase())){
+					trouvelow.add(lis.toLowerCase());
+					trouve.add(lis);
+				}
+				//System.out.println(ph);
+
+			}
+		}
+
+
+	}
+	System.out.println(authors.size());
+	System.out.println(trouve.size());
+
+
+	for(String trou:trouve){
+		System.out.println(trou);
+	}
+	
+	}
+
+}

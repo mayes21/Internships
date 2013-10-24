@@ -1,0 +1,52 @@
+package ReadXML;
+
+import java.util.ArrayList;
+
+public class FindSpatialEntities {
+	
+	ArrayList<String> SpatialEntities = new ArrayList<String>();
+	ArrayList<String> trouvelow = new ArrayList<String>();
+	ArrayList<String> se;
+	ArrayList<String> phrases;
+	
+	OpenSEFile opensefile;
+	ArrayPhrases arrayphrases = new ArrayPhrases();
+	
+	public FindSpatialEntities(ArrayList<String> textes, String path){
+		this.opensefile = new OpenSEFile(path);
+		this.se = opensefile.spatialentities();
+		this.phrases=arrayphrases.createPhrases(textes);
+		this.findSE();
+	}
+	
+	public void findSE(){
+		
+		for(String ph: se){
+
+			for(String lis:authors){
+				if(ph.toLowerCase().contains(lis.toLowerCase())){
+					//System.out.println(lis);
+					if(!trouvelow.contains(lis.toLowerCase())){
+						trouvelow.add(lis.toLowerCase());
+						trouve.add(lis);
+					}
+					//System.out.println(ph);
+
+				}
+			}
+
+
+		}
+		System.out.println(authors.size());
+		System.out.println(trouve.size());
+
+
+		for(String trou:trouve){
+			System.out.println(trou);
+		}
+		
+		}
+		
+	}
+
+}

@@ -1,0 +1,33 @@
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <meta http-equiv="Content-Language" content="fr" />
+ <title>
+  Squelette
+ </title>
+ <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+ 
+ 
+ <script type="text/javascript">//
+    $(function()
+    {
+	$('.pdfview').each (function(i)
+	{
+	     $(this)
+	     $(this).replaceWith('<h2><a href="'+$(this).attr('href')+'">'+$(this).text()+'</a></h2> <iframe src="http://docs.google.com/viewer?url='+$(this).attr('href')+'&#038;embedded=true" width="500" height="250" style="border: none;"></iframe>');
+ 
+	});
+	
+
+    });
+ </script>
+ 
+</head>
+
+<body>
+<p>
+Allez dans <code>Fichier &rarr; Enregistrer sous</code>, pour t&eacute;l&eacute;charger ce fichier.
+</p>
+<a href="/home/amayas/Téléchargements/tutoriel_hibernate.pdf">TESTTTT</a>
+</body>
+</html>
